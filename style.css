@@ -189,3 +189,95 @@ table{border-collapse:collapse;width:100%}
 /* 改行を文節単位に（Chrome/Edge。他ブラウザは通常改行） */
 .ttl,.points h3,.intro__catch,.dateband__place,.cls__target,.entry__ttl,.faq dt,.lead,.note,.notice,.entry__txt{word-break:auto-phrase}
 .dateband__place em{white-space:nowrap}
+
+/* =========================================================
+   v0.2：かっこよさ＋かわいさ・おしゃれさ
+   黒×金はそのまま、ローズゴールド・筆記体・角丸・ハサミのカットラインを足す
+   ========================================================= */
+:root{
+  --rose:#c48b7c;          /* 文字に使うローズ（白地でのコントラスト確保） */
+  --rose-l:#e9c4b6;
+  --blush:#fbf4f1;
+  --blush-2:#f5e8e3;
+  --rg:linear-gradient(100deg,#b88470 0%,#ecc9b9 45%,#c99a83 100%); /* ローズゴールド */
+  --script:"Pinyon Script",cursive;
+}
+body{color:#2b2523}
+.notice{background:var(--blush);border-bottom-color:#efd9d1;color:#8a5a4c}
+
+/* 見出し：筆記体＋きらめき */
+.ttl__en{font-family:var(--script);font-style:normal;font-weight:400;font-size:34px;line-height:1;color:var(--rose);letter-spacing:0;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.ttl__en::after{content:"✦";font-family:var(--jp);font-size:12px;color:var(--gold);transform:translateY(-6px)}
+.ttl--w .ttl__en{color:var(--rose-l)}
+.block--gray{background:var(--blush-2)}
+
+/* 日付帯 */
+.dateband__label{border-radius:999px;transform:none;background:var(--rg);padding:3px 18px;color:#2b1d17}
+.dateband__label i{font-style:normal;font-size:10px;margin:0 6px;vertical-align:2px}
+.dateband{border-bottom:none;position:relative}
+.dateband::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--rg)}
+.dateband__date span{color:var(--rose-l)}
+
+/* 導入 */
+.intro__script{font-family:var(--script);font-size:40px;color:#b57767;line-height:1.1;margin:-8px 0 6px}
+
+/* ハサミのカットライン */
+.cut{display:flex;align-items:center;gap:8px;padding:6px 22px;color:var(--rose)}
+.cut::before{content:"";flex:1;border-top:2px dashed var(--rose-l)}
+.cut svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;flex:none;transform:rotate(180deg)}
+.cut--dark{background:var(--black);padding-top:18px;padding-bottom:0;color:var(--rose-l)}
+.cut--dark::before{border-top-color:#5a4740}
+
+/* POINT */
+.points li{border:1.5px solid var(--rose-l);border-radius:18px;background:#fff;box-shadow:0 8px 22px -14px rgba(184,132,112,.6);padding-top:22px}
+.points__no{border-radius:999px;background:var(--rg);color:#2b1d17;top:-12px;padding:2px 14px}
+.points__no b{color:#2b1d17}
+.points mark{background:linear-gradient(transparent 60%,rgba(233,196,182,.75) 60%)}
+.points small{color:var(--rose)}
+
+/* CLASS */
+.cls{border-radius:18px;overflow:hidden;border-color:#ead9d2;box-shadow:0 8px 22px -16px rgba(43,37,35,.45)}
+.cls--next .cls__name{background:linear-gradient(100deg,#7b828c,#c3c8cf 60%,#9aa1aa)}
+.cls--rising .cls__name{background:var(--rg);color:#2b1d17}
+.cls--rising .cls__name span{color:#5a3a2c}
+.cls--pro .cls__name span{color:var(--rose-l)}
+.cls__table th,.cls__table td{border-top-color:#eadcd6}
+
+/* RULE */
+.rules li{border-radius:16px}
+.rules li:first-child b{background:var(--rg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.later{border-radius:16px;border-color:var(--rose-l);background:var(--blush)}
+.later__ttl{border-radius:999px;background:var(--rose);padding:1px 14px}
+
+/* JUDGE */
+.judge__ph{border:2px solid transparent;background:linear-gradient(#1c1e23,#1c1e23) padding-box,var(--rg) border-box}
+.judge__cls{color:var(--rose-l)}
+
+/* SCHEDULE */
+.sched tr.is-last td{background:var(--blush);border-left-color:var(--rose)}
+.sched td span{color:#a08a83}
+
+/* OUTLINE */
+.outline{border-radius:14px;overflow:hidden;border-top:none;box-shadow:0 0 0 1px #ead9d2}
+.outline th{background:#fbf4f1}
+
+/* FAQ */
+.faq dt::before{color:var(--rose)}
+.faq dd::before{color:#cdb8b1}
+
+/* ENTRY */
+.entry{border-top:none}
+.entry__en{font-family:var(--script);font-style:normal;font-weight:400;font-size:58px;background:var(--rg);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 8px}
+.entry__ttl span{border-bottom:none;background:linear-gradient(transparent 70%,rgba(196,139,124,.55) 70%)}
+.flow li{border-radius:14px}
+.flow b{color:var(--rose-l)}
+.entry__btn{border-radius:999px}
+.entry__btn.is-open{background:var(--rg);color:#2b1d17}
+
+/* PC 右メニュー */
+@media (min-width:1080px){
+  .side__nav a::before{color:var(--rose-l)}
+  .side__entry{border-radius:999px;border-color:var(--rose-l);color:var(--rose-l)!important}
+  .side__date span{color:var(--rose-l)}
+}
+.sp-nav a::before{color:var(--rose-l)}
