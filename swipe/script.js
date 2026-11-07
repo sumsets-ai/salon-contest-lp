@@ -87,3 +87,24 @@ document.querySelectorAll("[data-swipe]").forEach((root) => {
   });
   update();
 });
+
+// ---- 控えめなアニメーション（1回だけ） ----
+(() => {
+  if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.documentElement.classList.add("anim");
+  // カード：グループ内で少しずつ遅らせる（スワイプは枠ごと出す。はみ出した次のカードを隠さないため）
+  [".points li", ".rules li", ".swipe", ".flow li"].forEach((sel) => {
+    document.querySelectorAll(sel).forEach((el, i) => {
+      el.classList.add("rv");
+      el.style.setProperty("--d", `${(i % 4) * 0.08}s`);
+    });
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("is-in");
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.25, rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".cut, .ttl, .rv").forEach((el) => io.observe(el));
+})();

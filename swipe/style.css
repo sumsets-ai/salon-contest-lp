@@ -313,3 +313,48 @@ body{color:#2b2523}
 .swipe--judge .swipe__dots button{background:#4a3f3b}
 .swipe--judge .swipe__dots button[aria-current="true"]{background:var(--rose-l)}
 .swipe--judge .swipe__arrow{background:transparent;border-color:#5a4740;color:var(--rose-l)}
+
+/* =========================================================
+   v0.3：控えめなアニメーション
+   ・ハサミが点線を切りながら進む（1回だけ）
+   ・見出しの✦が1回だけ光る
+   ・カードがわずかに下から現れる（12px／0.5秒／1回だけ）
+   JSが動かない環境・動きを減らす設定では、最初から完成状態で表示
+   ========================================================= */
+.cut{position:relative;display:block;height:34px;padding:0;margin:6px 22px}
+.cut::before{content:none}
+.cut--dark{margin:0;padding:0 22px;height:52px;background:var(--black)}
+.cut__line,.cut__done{position:absolute;left:0;top:50%;height:0}
+.cut--dark .cut__line,.cut--dark .cut__done{left:22px}
+.cut__line{right:0;border-top:2px solid rgba(233,196,182,.35)}
+.cut--dark .cut__line{right:22px;border-top-color:#3a302d}
+.cut__done{width:calc(100% - 30px);border-top:2px dashed var(--rose-l)}
+.cut--dark .cut__done{width:calc(100% - 74px);border-top-color:#6a5249}
+.cut__sc{position:absolute;top:50%;right:0;transform:translateY(-50%);color:var(--rose);line-height:0;background:inherit}
+.cut--dark .cut__sc{right:22px;color:var(--rose-l)}
+.cut__sc svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;display:block}
+.cut svg{transform:none}
+.blade{transform-origin:14.6px 12px}
+
+/* --- アニメーション有効時の初期状態 --- */
+.anim .cut__done{width:0}
+.anim .cut__sc{right:auto;left:0}
+.anim .cut--dark .cut__sc{left:22px}
+.anim .cut.is-in .cut__done{width:calc(100% - 30px);transition:width 1.4s cubic-bezier(.45,.05,.4,1)}
+.anim .cut--dark.is-in .cut__done{width:calc(100% - 74px)}
+.anim .cut.is-in .cut__sc{left:calc(100% - 24px);transition:left 1.4s cubic-bezier(.45,.05,.4,1)}
+.anim .cut--dark.is-in .cut__sc{left:calc(100% - 46px)}
+.anim .cut.is-in .blade--a{animation:snipA .35s ease-in-out 4}
+.anim .cut.is-in .blade--b{animation:snipB .35s ease-in-out 4}
+@keyframes snipA{50%{transform:rotate(-14deg)}}
+@keyframes snipB{50%{transform:rotate(14deg)}}
+
+.anim .ttl.is-in .ttl__en::after{animation:twinkle 1s ease-out .2s 1}
+@keyframes twinkle{0%{opacity:1;transform:translateY(-6px) scale(1) rotate(0)}40%{opacity:1;transform:translateY(-6px) scale(1.9) rotate(45deg);text-shadow:0 0 8px rgba(201,163,90,.9)}100%{transform:translateY(-6px) scale(1) rotate(90deg)}}
+
+.anim .rv{opacity:0;transform:translateY(12px);transition:opacity .5s ease-out,transform .5s ease-out;transition-delay:var(--d,0s)}
+.anim .rv.is-in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .anim .rv{opacity:1;transform:none}
+}
