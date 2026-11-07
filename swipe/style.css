@@ -1,0 +1,315 @@
+/* GROOM ONE 2027 LP v0.1
+   作り：PCでもスマホ幅の1カラム（チラシ型）＋左右にKV。
+   色：チラシの黒・金・白。文字：太ゴシック中心、英字はロゴに合わせた斜体コンデンス。 */
+:root{
+  --black:#0b0c0f;
+  --ink:#1a1a1a;
+  --gray:#f1f0ec;
+  --line:#d9d6ce;
+  --gold:#c9a35a;
+  --gold-d:#9c7a35;
+  --red:#b0442c;      /* 「後日発表」用 */
+  --col:480px;
+  --jp:"Noto Sans JP",system-ui,sans-serif;
+  --en:"Barlow Condensed","Noto Sans JP",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{margin:0;background:var(--black);color:var(--ink);font-family:var(--jp);font-size:15px;line-height:1.85;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse 40% 60% at 15% 30%,rgba(255,255,255,.06),transparent 70%),radial-gradient(ellipse 35% 50% at 88% 75%,rgba(201,163,90,.08),transparent 70%)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3,p,dl,dd,dt,ol,ul,table{margin:0;padding:0}
+ol,ul{list-style:none}
+table{border-collapse:collapse;width:100%}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* ---- 1カラム ---- */
+.col{position:relative;width:100%;max-width:var(--col);margin:0 auto;background:#fff;box-shadow:0 0 60px rgba(0,0,0,.6);min-height:100vh}
+
+/* ---- PCの左右 ---- */
+.side{display:none}
+@media (min-width:1080px){
+  .side{display:flex;position:fixed;top:0;bottom:0;width:calc((100% - var(--col))/2);flex-direction:column;justify-content:center;color:#fff;padding:40px}
+  .side--left{left:0;align-items:center;text-align:center}
+  .side--right{right:0;align-items:flex-start;padding-left:min(80px,6vw)}
+  .side__logo{width:min(340px,80%)}
+  .side__date{font-family:var(--en);font-style:italic;font-weight:700;font-size:56px;line-height:1;margin-top:28px;letter-spacing:.02em}
+  .side__date span{font-size:22px;color:var(--gold);margin-left:8px}
+  .side__place{font-size:13px;color:#a7abb2;margin-top:10px}
+  .side__nav{display:flex;flex-direction:column;gap:4px}
+  .side__nav a{text-decoration:none;font-weight:700;font-size:15px;padding:6px 0 6px 18px;position:relative;color:#d9dce0}
+  .side__nav a::before{content:"／";position:absolute;left:0;color:var(--gold)}
+  .side__nav a:hover{color:#fff}
+  .side__entry{margin-top:18px;border:1px solid var(--gold);color:var(--gold)!important;padding:12px 26px!important;text-align:center}
+  .side__entry::before{display:none}
+  .topbar__menu{display:none!important}
+}
+
+/* ---- 上部バー ---- */
+.topbar{position:sticky;top:0;z-index:20;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 14px;background:var(--black);color:#fff}
+.topbar__logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--en);font-style:italic;font-weight:700;font-size:19px;letter-spacing:.03em}
+.topbar__logo img{width:34px}
+.topbar__logo b{color:var(--gold);font-weight:700}
+.topbar__menu{width:44px;height:44px;background:none;border:0;display:grid;place-content:center;gap:7px;cursor:pointer}
+.topbar__menu span:not(.sr-only){display:block;width:24px;height:2px;background:#fff;transition:.2s}
+.topbar__menu[aria-expanded="true"] span:nth-child(1){transform:translateY(4.5px) rotate(45deg)}
+.topbar__menu[aria-expanded="true"] span:nth-child(2){transform:translateY(-4.5px) rotate(-45deg)}
+.sp-nav{display:none;position:absolute;top:52px;left:0;right:0;background:var(--black);padding:6px 20px 20px;flex-direction:column}
+.sp-nav.is-open{display:flex}
+.sp-nav a{text-decoration:none;font-weight:700;padding:13px 0;border-bottom:1px solid #24262b}
+.sp-nav a::before{content:"／";color:var(--gold);margin-right:6px}
+
+/* ---- KV・日付 ---- */
+.kv{background:var(--black);line-height:0}
+.dateband{background:var(--black);color:#fff;text-align:center;padding:4px 16px 26px;border-bottom:4px solid var(--gold)}
+.dateband__label{display:inline-block;background:var(--gold);color:var(--black);font-weight:900;font-size:14px;padding:2px 14px;letter-spacing:.1em;transform:skewX(-10deg)}
+.dateband__date{font-family:var(--en);font-style:italic;font-weight:800;font-size:68px;line-height:1.05;letter-spacing:.01em;margin-top:6px}
+.dateband__date span{color:var(--gold)}
+.dateband__date small{font-size:24px;color:var(--gold);margin-left:8px;letter-spacing:.06em}
+.dateband__place{font-size:13px;font-weight:500;color:#d0d3d8}
+.dateband__place em{font-style:normal;color:#9aa0a8}
+.notice{background:#fbf6ea;border-bottom:1px solid #eadfc4;font-size:12px;line-height:1.7;padding:10px 18px;color:#6b5320}
+
+/* ---- 導入 ---- */
+.intro{padding:40px 22px 8px}
+.intro__catch{font-weight:900;font-size:26px;line-height:1.5;margin-bottom:14px;letter-spacing:.02em}
+.intro p:not(.intro__catch){font-size:15px}
+
+/* ---- ブロック共通 ---- */
+.block{padding:48px 22px 52px}
+.block--gray{background:var(--gray)}
+.block--black{background:var(--black);color:#e8e9eb}
+.ttl{font-weight:900;font-size:24px;line-height:1.4;margin-bottom:6px;letter-spacing:.03em}
+.ttl small{font-size:14px;font-weight:700;color:#777}
+.ttl__en{display:block;font-family:var(--en);font-style:italic;font-weight:700;font-size:16px;color:var(--gold-d);letter-spacing:.06em;margin-bottom:2px}
+.ttl--w .ttl__en{color:var(--gold)}
+.lead{font-size:13px;color:#666;margin-bottom:22px}
+.block--black .lead{color:#9aa0a8}
+.note{font-size:12px;color:#666;margin-top:16px;line-height:1.7}
+
+/* POINT */
+.points{display:grid;gap:14px;margin-top:22px}
+.points li{border:2px solid var(--ink);padding:18px 18px 16px;position:relative;background:#fff}
+.points__no{position:absolute;top:-13px;left:14px;background:var(--ink);color:#fff;font-family:var(--en);font-style:italic;font-weight:700;font-size:13px;padding:1px 10px;letter-spacing:.06em}
+.points__no b{font-size:17px;margin-left:3px;color:var(--gold)}
+.points h3{font-weight:900;font-size:19px;line-height:1.45;margin:4px 0 6px}
+.points mark{background:linear-gradient(transparent 62%,rgba(201,163,90,.45) 62%);color:inherit}
+.points p{font-size:14px;color:#444}
+.points small{color:var(--red);font-size:12px}
+
+/* CLASS */
+.cls{background:#fff;margin-bottom:16px;border:1px solid var(--line)}
+.cls__name{font-family:var(--en);font-style:italic;font-weight:800;font-size:32px;line-height:1;color:#fff;background:var(--ink);padding:14px 16px 12px;letter-spacing:.02em;display:flex;flex-direction:column;gap:6px}
+.cls__name span{font-family:var(--jp);font-style:normal;font-weight:700;font-size:12px;letter-spacing:.1em;color:var(--gold)}
+.cls--next .cls__name{background:linear-gradient(100deg,#5d636c,#9aa1aa)}
+.cls--next .cls__name span{color:#fff}
+.cls--rising .cls__name{background:linear-gradient(100deg,#8a6a2c,#c9a35a)}
+.cls--rising .cls__name span{color:#fff}
+.cls__target{font-weight:900;font-size:17px;padding:12px 16px 4px}
+.cls__table{font-size:14px;margin:0 0 6px}
+.cls__table th{width:5.5em;text-align:left;font-weight:700;color:#666;font-size:12px;padding:8px 0 8px 16px;vertical-align:top;border-top:1px dashed var(--line)}
+.cls__table td{padding:7px 16px 7px 0;border-top:1px dashed var(--line);line-height:1.6}
+.cls__table small{display:block;font-size:12px;color:#777}
+
+/* RULE */
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.rules li{background:var(--ink);color:#fff;text-align:center;padding:16px 4px 12px;display:flex;flex-direction:column;justify-content:center;min-height:128px}
+.rules b{font-weight:900;font-size:22px;line-height:1.25}
+.rules li:first-child b{font-family:var(--en);font-style:italic;font-size:54px;line-height:1;color:var(--gold)}
+.rules li:first-child small{font-family:var(--jp);font-style:normal;font-size:16px;color:#fff;margin-left:2px}
+.rules span{font-size:12px;color:#b9bdc3;margin-top:8px}
+.later{margin-top:18px;border:2px dashed #d7b7a9;padding:14px 16px;background:#fdf8f5}
+.later__ttl{display:inline-block;font-weight:900;font-size:13px;color:#fff;background:var(--red);padding:0 10px;margin-bottom:6px}
+.later li{font-size:14px;padding-left:1em;text-indent:-1em}
+.later li::before{content:"・"}
+
+/* JUDGE */
+.judge{display:grid;grid-template-columns:84px 1fr;gap:6px 16px;align-items:center;padding:20px 0;border-top:1px solid #2a2c31}
+.judge:last-child{border-bottom:1px solid #2a2c31}
+.judge__ph{width:84px;height:84px;border-radius:50%;background:#1c1e23;border:1px solid #34373d;display:grid;place-items:center;font-family:var(--en);font-size:12px;letter-spacing:.15em;color:#5d626a}
+.judge__cls{font-size:12px;font-weight:700;color:var(--gold)}
+.judge__name{font-weight:900;font-size:21px;line-height:1.4;color:#fff}
+.judge__name small{font-size:13px;font-weight:500;margin-left:6px;color:#a7abb2}
+.judge__org{font-size:12px;color:#a7abb2}
+.judge__bio{grid-column:1/-1;font-size:13px;color:#c7cace;line-height:1.8;margin-top:6px}
+
+/* SCHEDULE */
+.sched th{width:64px;text-align:left;font-family:var(--en);font-weight:700;font-size:22px;padding:12px 0;vertical-align:top;border-bottom:1px solid var(--line)}
+.sched td{padding:12px 0 12px 12px;font-weight:700;font-size:15px;border-bottom:1px solid var(--line);border-left:3px solid var(--ink);line-height:1.5}
+.sched td span{display:block;font-family:var(--en);font-style:italic;font-weight:600;font-size:13px;color:#888;letter-spacing:.04em}
+.sched tr.is-am td{border-left-color:#9aa1aa}
+.sched tr.is-last td{background:#fbf6ea;border-left-color:var(--gold)}
+
+/* OUTLINE */
+.outline{background:#fff;border-top:2px solid var(--ink);font-size:14px}
+.outline th{width:8.2em;white-space:nowrap;background:#f7f6f2;text-align:left;font-weight:700;padding:12px 10px 12px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;font-size:13px}
+.outline td{padding:12px 12px;border-bottom:1px solid var(--line);line-height:1.65}
+.outline small{color:#777;font-size:12px}
+.outline strong{font-weight:900}
+
+/* FAQ */
+.faq dt{font-weight:900;font-size:15px;padding:16px 0 6px 30px;position:relative;border-top:1px solid var(--line);line-height:1.6}
+.faq dt::before{content:"Q";position:absolute;left:0;top:13px;font-family:var(--en);font-style:italic;font-weight:800;font-size:22px;color:var(--gold-d)}
+.faq dd{font-size:14px;color:#444;padding:0 0 16px 30px;position:relative}
+.faq dd::before{content:"A";position:absolute;left:2px;top:-2px;font-family:var(--en);font-style:italic;font-weight:800;font-size:20px;color:#aaa}
+
+/* ENTRY */
+.entry{background:var(--black);color:#fff;text-align:center;padding:52px 22px 56px;border-top:4px solid var(--gold)}
+.entry__en{font-family:var(--en);font-style:italic;font-weight:800;font-size:46px;line-height:1;color:var(--gold);letter-spacing:.04em}
+.entry__ttl{font-weight:900;font-size:24px;line-height:1.45;margin:12px 0 14px}
+.entry__ttl span{font-size:32px;border-bottom:3px solid var(--gold)}
+.entry__txt{font-size:14px;color:#c7cace;margin-bottom:24px;text-align:left}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
+.flow li{background:#1b1d22;font-size:12px;font-weight:700;line-height:1.45;padding:12px 2px 12px;position:relative}
+.flow b{display:block;font-family:var(--en);font-style:italic;font-size:26px;color:var(--gold);line-height:1;margin-bottom:6px}
+.entry__small{font-size:12px;color:#9aa0a8;margin:10px 0}
+.entry__btn{display:block;margin:22px 0 6px;padding:18px;font-weight:900;font-size:17px;text-decoration:none;background:#55585e;color:#d6d8db;letter-spacing:.06em;cursor:not-allowed}
+.entry__btn.is-open{background:linear-gradient(180deg,#d8b86d,#b38a3a);color:#111;cursor:pointer}
+
+/* FOOTER */
+.foot{background:#050608;color:#a7abb2;padding:36px 22px 40px;text-align:center}
+.foot__logo{width:200px;margin:0 auto 18px}
+.foot__credit{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;text-align:left;font-size:13px;max-width:340px;margin:0 auto}
+.foot__credit dt{color:#7d828a;font-size:12px}
+.foot__credit dd{color:#fff}
+.foot__copy{font-size:11px;color:#5d626a;margin-top:24px}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:#fff;color:#111;font-size:14px;font-weight:700;padding:14px 18px;border-left:4px solid var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.4);transition:.25s;z-index:50;width:max-content;max-width:calc(100% - 32px)}
+.toast.is-show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:360px){
+  .dateband__date{font-size:56px}
+  .rules b{font-size:19px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* 改行を文節単位に（Chrome/Edge。他ブラウザは通常改行） */
+.ttl,.points h3,.intro__catch,.dateband__place,.cls__target,.entry__ttl,.faq dt,.lead,.note,.notice,.entry__txt{word-break:auto-phrase}
+.dateband__place em{white-space:nowrap}
+
+/* =========================================================
+   v0.2：かっこよさ＋かわいさ・おしゃれさ
+   黒×金はそのまま、ローズゴールド・筆記体・角丸・ハサミのカットラインを足す
+   ========================================================= */
+:root{
+  --rose:#c48b7c;          /* 文字に使うローズ（白地でのコントラスト確保） */
+  --rose-l:#e9c4b6;
+  --blush:#fbf4f1;
+  --blush-2:#f5e8e3;
+  --rg:linear-gradient(100deg,#b88470 0%,#ecc9b9 45%,#c99a83 100%); /* ローズゴールド */
+  --script:"Pinyon Script",cursive;
+}
+body{color:#2b2523}
+.notice{background:var(--blush);border-bottom-color:#efd9d1;color:#8a5a4c}
+
+/* 見出し：筆記体＋きらめき */
+.ttl__en{font-family:var(--script);font-style:normal;font-weight:400;font-size:34px;line-height:1;color:var(--rose);letter-spacing:0;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.ttl__en::after{content:"✦";font-family:var(--jp);font-size:12px;color:var(--gold);transform:translateY(-6px)}
+.ttl--w .ttl__en{color:var(--rose-l)}
+.block--gray{background:var(--blush-2)}
+
+/* 日付帯 */
+.dateband__label{border-radius:999px;transform:none;background:var(--rg);padding:3px 18px;color:#2b1d17}
+.dateband__label i{font-style:normal;font-size:10px;margin:0 6px;vertical-align:2px}
+.dateband{border-bottom:none;position:relative}
+.dateband::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--rg)}
+.dateband__date span{color:var(--rose-l)}
+
+/* 導入 */
+.intro__script{font-family:var(--script);font-size:40px;color:#b57767;line-height:1.1;margin:-8px 0 6px}
+
+/* ハサミのカットライン */
+.cut{display:flex;align-items:center;gap:8px;padding:6px 22px;color:var(--rose)}
+.cut::before{content:"";flex:1;border-top:2px dashed var(--rose-l)}
+.cut svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;flex:none;transform:rotate(180deg)}
+.cut--dark{background:var(--black);padding-top:18px;padding-bottom:0;color:var(--rose-l)}
+.cut--dark::before{border-top-color:#5a4740}
+
+/* POINT */
+.points li{border:1.5px solid var(--rose-l);border-radius:18px;background:#fff;box-shadow:0 8px 22px -14px rgba(184,132,112,.6);padding-top:22px}
+.points__no{border-radius:999px;background:var(--rg);color:#2b1d17;top:-12px;padding:2px 14px}
+.points__no b{color:#2b1d17}
+.points mark{background:linear-gradient(transparent 60%,rgba(233,196,182,.75) 60%)}
+.points small{color:var(--rose)}
+
+/* CLASS */
+.cls{border-radius:18px;overflow:hidden;border-color:#ead9d2;box-shadow:0 8px 22px -16px rgba(43,37,35,.45)}
+.cls--next .cls__name{background:linear-gradient(100deg,#7b828c,#c3c8cf 60%,#9aa1aa)}
+.cls--rising .cls__name{background:var(--rg);color:#2b1d17}
+.cls--rising .cls__name span{color:#5a3a2c}
+.cls--pro .cls__name span{color:var(--rose-l)}
+.cls__table th,.cls__table td{border-top-color:#eadcd6}
+
+/* RULE */
+.rules li{border-radius:16px}
+.rules li:first-child b{background:var(--rg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.later{border-radius:16px;border-color:var(--rose-l);background:var(--blush)}
+.later__ttl{border-radius:999px;background:var(--rose);padding:1px 14px}
+
+/* JUDGE */
+.judge__ph{border:2px solid transparent;background:linear-gradient(#1c1e23,#1c1e23) padding-box,var(--rg) border-box}
+.judge__cls{color:var(--rose-l)}
+
+/* SCHEDULE */
+.sched tr.is-last td{background:var(--blush);border-left-color:var(--rose)}
+.sched td span{color:#a08a83}
+
+/* OUTLINE */
+.outline{border-radius:14px;overflow:hidden;border-top:none;box-shadow:0 0 0 1px #ead9d2}
+.outline th{background:#fbf4f1}
+
+/* FAQ */
+.faq dt::before{color:var(--rose)}
+.faq dd::before{color:#cdb8b1}
+
+/* ENTRY */
+.entry{border-top:none}
+.entry__en{font-family:var(--script);font-style:normal;font-weight:400;font-size:58px;background:var(--rg);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 8px}
+.entry__ttl span{border-bottom:none;background:linear-gradient(transparent 70%,rgba(196,139,124,.55) 70%)}
+.flow li{border-radius:14px}
+.flow b{color:var(--rose-l)}
+.entry__btn{border-radius:999px}
+.entry__btn.is-open{background:var(--rg);color:#2b1d17}
+
+/* PC 右メニュー */
+@media (min-width:1080px){
+  .side__nav a::before{color:var(--rose-l)}
+  .side__entry{border-radius:999px;border-color:var(--rose-l);color:var(--rose-l)!important}
+  .side__date span{color:var(--rose-l)}
+}
+.sp-nav a::before{color:var(--rose-l)}
+
+/* =========================================================
+   スワイプ版：クラス紹介・審査員を横スワイプ（scroll-snap）
+   ========================================================= */
+.swipe__hint{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;color:var(--rose);margin:-8px 0 12px}
+.swipe__hint span{font-family:var(--script);font-weight:400;font-size:24px;line-height:1}
+.swipe__hint::after{content:"";width:40px;height:1px;background:currentColor;animation:hint 1.6s ease-in-out infinite}
+.swipe__hint--w{color:var(--rose-l)}
+@keyframes hint{0%,100%{transform:translateX(0);opacity:.4}50%{transform:translateX(10px);opacity:1}}
+.swipe{margin:0 -22px}
+.swipe__track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 22px;padding:6px 22px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.swipe__track::-webkit-scrollbar{display:none}
+.swipe__track>*{flex:0 0 84%;scroll-snap-align:start;margin:0}
+.swipe__track:focus-visible{outline:2px solid var(--rose);outline-offset:-2px}
+.swipe__nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:0 22px}
+.swipe__dots{display:flex;gap:8px}
+.swipe__dots button{width:8px;height:8px;border-radius:999px;border:0;padding:0;background:#d9c3bb;cursor:pointer;transition:width .25s,background .25s}
+.swipe__dots button[aria-current="true"]{width:24px;background:var(--rose)}
+.swipe__arrow{width:36px;height:36px;border-radius:50%;border:1px solid var(--rose-l);background:#fff;color:var(--rose);font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center;padding-bottom:2px;transition:opacity .2s}
+.swipe__arrow:disabled{opacity:.3;cursor:default}
+
+/* クラスカード：横並び用に高さを揃える */
+.swipe .cls{margin-bottom:0;display:flex;flex-direction:column}
+
+/* 審査員：縦長カードに */
+.swipe--judge .judge{display:flex;flex-direction:column;align-items:center;text-align:center;background:#16181d;border:1px solid #2a2c31;border-radius:20px;padding:26px 20px 24px}
+.swipe--judge .judge:last-child{border-bottom:1px solid #2a2c31}
+.swipe--judge .judge__ph{width:120px;height:120px;margin-bottom:14px;font-size:13px}
+.swipe--judge .judge__bio{text-align:left;margin-top:14px;padding-top:14px;border-top:1px dashed #3a3330}
+.swipe--judge .swipe__dots button{background:#4a3f3b}
+.swipe--judge .swipe__dots button[aria-current="true"]{background:var(--rose-l)}
+.swipe--judge .swipe__arrow{background:transparent;border-color:#5a4740;color:var(--rose-l)}
