@@ -117,9 +117,9 @@ table{border-collapse:collapse;width:100%}
 .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .rules li{background:var(--ink);color:#fff;text-align:center;padding:16px 4px 12px;display:flex;flex-direction:column;justify-content:center;min-height:128px}
 .rules b{font-weight:900;font-size:22px;line-height:1.25}
-.rules li:first-child b{font-family:var(--en);font-style:italic;font-size:54px;line-height:1;color:var(--gold)}
+.rules li:first-child b{font-family:var(--en);font-style:italic;font-size:62px;line-height:1;color:var(--gold)}
 .rules li:first-child small{font-family:var(--jp);font-style:normal;font-size:16px;color:#fff;margin-left:2px}
-.rules span{font-size:12px;color:#b9bdc3;margin-top:8px}
+.rules li>span{font-size:12px;color:#b9bdc3;margin-top:8px}
 .later{margin-top:18px;border:2px dashed #d7b7a9;padding:14px 16px;background:#fdf8f5}
 .later__ttl{display:inline-block;font-weight:900;font-size:13px;color:#fff;background:var(--red);padding:0 10px;margin-bottom:6px}
 .later li{font-size:14px;padding-left:1em;text-indent:-1em}
