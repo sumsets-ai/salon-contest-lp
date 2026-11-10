@@ -3,19 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0c0f">
 <title>GROOM ONE 2027（スワイプ版）｜2027年3月11日開催 グルーミングコンテスト</title>
 <meta name="description" content="学生から現役グルーマーまでが挑戦できるグルーミングコンテスト「GROOM ONE 2027」。2027年3月11日（木）開催。経験年数別の3クラス、競技90分・犬種自由・カットスタイル自由。">
 <meta name="robots" content="noindex"><!-- 確認用公開：正式公開時に外す -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700;1,800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=0.3s">
+<link rel="stylesheet" href="style.css?v=0.5s">
 </head>
 <body>
+<a class="skip" href="#top">本文へスキップ</a>
 
 <!-- PC：左右の飾り（スマホでは非表示） -->
 <aside class="side side--left" aria-hidden="true">
-  <img class="side__logo" src="assets/logo.png" alt="">
+  <img class="side__logo" src="assets/logo.png" width="760" height="450" alt="">
   <p class="side__date">2027.3.11<span>THU</span></p>
   <p class="side__place">名古屋ホスピタリティ・アカデミー（予定）</p>
 </aside>
@@ -35,7 +37,7 @@
 <div class="col">
 
 <header class="topbar">
-  <a href="#top" class="topbar__logo"><img src="assets/logo-mark-a.png" alt="">GROOM ONE <b>2027</b></a>
+  <a href="#top" class="topbar__logo" translate="no"><img src="assets/logo-mark-a.png" width="390" height="280" alt="">GROOM ONE <b>2027</b></a>
   <button class="topbar__menu" type="button" aria-controls="sp-nav" aria-expanded="false"><span></span><span></span><span class="sr-only js-menu-label">メニューを開く</span></button>
   <nav class="sp-nav" id="sp-nav" aria-label="ページ内メニュー">
     <a href="#point">GROOM ONEとは</a>
@@ -53,13 +55,14 @@
 
 <!-- KV：チラシをそのまま -->
 <h1 class="kv">
-  <img src="assets/flyer.jpg" width="1199" height="1172" alt="GROOM ONE NAGOYA 2027 GROOMING COMPETITION　サロンワークの技術が、次のスタンダードになる。主催 IRODORI LIFE／オフィシャルパートナー Lulu dog trimming">
+  <img src="assets/flyer.jpg" width="1199" height="1172" fetchpriority="high" alt="GROOM ONE NAGOYA 2027 GROOMING COMPETITION　サロンワークの技術が、次のスタンダードになる。主催 IRODORI LIFE／オフィシャルパートナー Lulu dog trimming">
 </h1>
 
 <div class="dateband">
   <p class="dateband__label"><i>✦</i>開催決定！<i>✦</i></p>
   <p class="dateband__date">2027<span>.</span>3<span>.</span>11<small>THU</small></p>
   <p class="dateband__place">会場：専門学校 名古屋ホスピタリティ・アカデミー<em>（予定）</em></p>
+  <a class="dateband__btn" href="#entry">エントリー・募集要項を見る</a>
 </div>
 
 <p class="notice">※ 開催日以外は企画段階の内容です。決まり次第、このページで順次お知らせします。</p>
@@ -103,7 +106,7 @@
   <div class="swipe" data-swipe aria-roledescription="カルーセル" aria-label="クラス紹介">
   <div class="swipe__track" tabindex="0">
   <article class="cls cls--next">
-    <h3 class="cls__name"><span>午前の部</span>NEXT GROOMER</h3>
+    <h3 class="cls__name" translate="no"><span>午前の部</span>NEXT GROOMER</h3>
     <p class="cls__target">学生・実務経験1年未満</p>
     <table class="cls__table">
       <tr><th>参加費</th><td>後日発表<small>会場校の生徒は最大3名まで無料（予定）</small></td></tr>
@@ -113,7 +116,7 @@
   </article>
 
   <article class="cls cls--rising">
-    <h3 class="cls__name"><span>午後の部</span>RISING</h3>
+    <h3 class="cls__name" translate="no"><span>午後の部</span>RISING</h3>
     <p class="cls__target">実務経験1年以上5年未満</p>
     <table class="cls__table">
       <tr><th>参加費</th><td>有料（金額は後日発表）</td></tr>
@@ -123,7 +126,7 @@
   </article>
 
   <article class="cls cls--pro">
-    <h3 class="cls__name"><span>午後の部</span>SALON PRO</h3>
+    <h3 class="cls__name" translate="no"><span>午後の部</span>SALON PRO</h3>
     <p class="cls__target">実務経験5年以上</p>
     <table class="cls__table">
       <tr><th>参加費</th><td>有料（金額は後日発表）</td></tr>
@@ -143,7 +146,7 @@
   <h2 class="ttl"><span class="ttl__en">Rule</span>競技ルール</h2>
   <p class="lead">全クラス共通です（予定）。</p>
   <ul class="rules">
-    <li><b>90<small>分</small></b><span>競技時間</span></li>
+    <li><b><span class="rg-num">90</span><small>分</small></b><span>競技時間</span></li>
     <li><b>犬種<br>自由</b><span>ミックス犬もOK</span></li>
     <li><b>スタイル<br>自由</b><span>カットスタイル</span></li>
   </ul>
@@ -217,11 +220,11 @@
 <section class="block block--gray" id="outline">
   <h2 class="ttl"><span class="ttl__en">Outline</span>開催概要</h2>
   <table class="outline">
-    <tr><th>大会名</th><td>GROOM ONE 2027</td></tr>
+    <tr><th>大会名</th><td translate="no">GROOM ONE 2027</td></tr>
     <tr><th>開催日</th><td><strong>2027年3月11日（木）</strong></td></tr>
     <tr><th>会場</th><td>専門学校 名古屋ホスピタリティ・アカデミー（予定）<br><small>住所・アクセスは後日発表</small></td></tr>
-    <tr><th>主催</th><td>IRODORI LIFE</td></tr>
-    <tr><th>オフィシャル<br>パートナー</th><td>Lulu dog trimming</td></tr>
+    <tr><th>主催</th><td translate="no">IRODORI LIFE</td></tr>
+    <tr><th>オフィシャル<br>パートナー</th><td translate="no">Lulu dog trimming</td></tr>
     <tr><th>会場協力</th><td>専門学校 名古屋ホスピタリティ・アカデミー（予定）</td></tr>
     <tr><th>クラス</th><td>NEXT GROOMER（学生・1年未満）<br>RISING（1年以上5年未満）<br>SALON PRO（5年以上）</td></tr>
     <tr><th>競技</th><td>90分／犬種自由（ミックス可）／カットスタイル自由</td></tr>
@@ -270,10 +273,10 @@
 </main>
 
 <footer class="foot">
-  <img src="assets/logo.png" alt="GROOM ONE NAGOYA 2027" class="foot__logo">
+  <img src="assets/logo.png" width="760" height="450" loading="lazy" alt="GROOM ONE NAGOYA 2027" class="foot__logo">
   <dl class="foot__credit">
-    <dt>主催</dt><dd>IRODORI LIFE</dd>
-    <dt>オフィシャルパートナー</dt><dd>Lulu dog trimming</dd>
+    <dt>主催</dt><dd translate="no">IRODORI LIFE</dd>
+    <dt>オフィシャルパートナー</dt><dd translate="no">Lulu dog trimming</dd>
     <dt>会場協力</dt><dd>専門学校 名古屋ホスピタリティ・アカデミー（予定）</dd>
   </dl>
   <p class="foot__copy">© GROOM ONE 2027</p>
@@ -281,6 +284,6 @@
 
 </div><!-- /.col -->
 
-<script src="script.js?v=0.3s"></script>
+<script src="script.js?v=0.5s"></script>
 </body>
 </html>

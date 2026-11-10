@@ -99,12 +99,23 @@ document.querySelectorAll("[data-swipe]").forEach((root) => {
       el.style.setProperty("--d", `${(i % 4) * 0.08}s`);
     });
   });
+  // 安全策：判定処理が動かない環境では、アニメーションをやめて最初から全部見せる
+  let ioAlive = false;
+  setTimeout(() => { if (!ioAlive) document.documentElement.classList.remove("anim"); }, 1500);
   const io = new IntersectionObserver((entries) => {
+    ioAlive = true;
     entries.forEach((e) => {
       if (!e.isIntersecting) return;
       e.target.classList.add("is-in");
       io.unobserve(e.target);
     });
   }, { threshold: 0.25, rootMargin: "0px 0px -8% 0px" });
+  // ハサミの移動距離（transformで動かすため、線の長さを先に測っておく）
+  const setCut = () => document.querySelectorAll(".cut").forEach((c) => {
+    const line = c.querySelector(".cut__line");
+    c.style.setProperty("--cutw", `${line.getBoundingClientRect().width}px`);
+  });
+  setCut();
+  addEventListener("resize", setCut, { passive: true });
   document.querySelectorAll(".cut, .ttl, .rv").forEach((el) => io.observe(el));
 })();

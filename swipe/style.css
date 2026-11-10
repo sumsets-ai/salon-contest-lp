@@ -53,7 +53,7 @@ table{border-collapse:collapse;width:100%}
 .topbar__logo img{width:34px}
 .topbar__logo b{color:var(--gold);font-weight:700}
 .topbar__menu{width:44px;height:44px;background:none;border:0;display:grid;place-content:center;gap:7px;cursor:pointer}
-.topbar__menu span:not(.sr-only){display:block;width:24px;height:2px;background:#fff;transition:.2s}
+.topbar__menu span:not(.sr-only){display:block;width:24px;height:2px;background:#fff;transition:transform .2s}
 .topbar__menu[aria-expanded="true"] span:nth-child(1){transform:translateY(4.5px) rotate(45deg)}
 .topbar__menu[aria-expanded="true"] span:nth-child(2){transform:translateY(-4.5px) rotate(-45deg)}
 .sp-nav{display:none;position:absolute;top:52px;left:0;right:0;background:var(--black);padding:6px 20px 20px;flex-direction:column}
@@ -177,7 +177,7 @@ table{border-collapse:collapse;width:100%}
 .foot__copy{font-size:11px;color:#5d626a;margin-top:24px}
 
 /* toast */
-.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:#fff;color:#111;font-size:14px;font-weight:700;padding:14px 18px;border-left:4px solid var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.4);transition:.25s;z-index:50;width:max-content;max-width:calc(100% - 32px)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:#fff;color:#111;font-size:14px;font-weight:700;padding:14px 18px;border-left:4px solid var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.4);transition:opacity .25s,transform .25s;z-index:50;width:max-content;max-width:calc(100% - 32px)}
 .toast.is-show{opacity:1;transform:translate(-50%,0)}
 
 @media (max-width:360px){
@@ -287,7 +287,7 @@ body{color:#2b2523}
    ========================================================= */
 .swipe__hint{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;color:var(--rose);margin:-8px 0 12px}
 .swipe__hint span{font-family:var(--script);font-weight:400;font-size:24px;line-height:1}
-.swipe__hint::after{content:"";width:40px;height:1px;background:currentColor;animation:hint 1.6s ease-in-out infinite}
+.swipe__hint::after{content:"";width:40px;height:1px;background:currentColor;animation:hint 1.6s ease-in-out 3}
 .swipe__hint--w{color:var(--rose-l)}
 @keyframes hint{0%,100%{transform:translateX(0);opacity:.4}50%{transform:translateX(10px);opacity:1}}
 .swipe{margin:0 -22px}
@@ -358,3 +358,67 @@ body{color:#2b2523}
 @media (prefers-reduced-motion:reduce){
   .anim .rv{opacity:1;transform:none}
 }
+
+/* =========================================================
+   v0.4：Web Interface Guidelines（Vercel）の点検で直した所
+   ========================================================= */
+html{-webkit-tap-highlight-color:rgba(196,139,124,.25);touch-action:manipulation}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:#fff;color:#111;font-weight:700;padding:10px 16px;border-radius:999px;text-decoration:none;transition:top .15s}
+.skip:focus-visible{top:12px}
+.ttl,.intro__catch,.entry__ttl,.points h3{text-wrap:balance}
+.sched th,.dateband__date,.side__date,.flow b{font-variant-numeric:tabular-nums}
+.topbar__menu:hover span:not(.sr-only){background:var(--rose-l)}
+.sp-nav a:hover{color:var(--rose-l)}
+.topbar__logo:hover b{color:var(--rose-l)}
+.entry__btn:not(.is-open):hover{background:#5f6268}
+.entry__btn.is-open:hover{filter:brightness(1.06)}
+@media (min-width:1080px){.side__entry:hover{background:rgba(233,196,182,.12)}}
+.foot__copy{color:#8b9097}
+/* ハサミ：left/width ではなく transform で動かす */
+.blade{transform-box:view-box}
+.cut__done{transform-origin:left center}
+.anim .cut__done{width:calc(100% - 30px);transform:scaleX(0)}
+.anim .cut--dark .cut__done{width:calc(100% - 74px)}
+.anim .cut.is-in .cut__done{transform:scaleX(1);transition:transform 1.4s cubic-bezier(.45,.05,.4,1)}
+.anim .cut__sc{left:0;transform:translate(0,-50%)}
+.anim .cut--dark .cut__sc{left:22px}
+.anim .cut.is-in .cut__sc{left:0;transform:translate(calc(var(--cutw, 300px) - 24px),-50%);transition:transform 1.4s cubic-bezier(.45,.05,.4,1)}
+.anim .cut--dark.is-in .cut__sc{left:22px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
+.swipe__track{overscroll-behavior-x:contain}
+.swipe__dots button{position:relative}
+.swipe__dots button::after{content:"";position:absolute;inset:-12px -6px}
+.swipe__arrow{width:44px;height:44px}
+.swipe__arrow:not(:disabled):hover{background:var(--blush)}
+.swipe--judge .swipe__arrow:not(:disabled):hover{background:rgba(233,196,182,.12)}
+
+/* =========================================================
+   v0.5：taste-skill（4幅ブラウザー点検）で直した所
+   ========================================================= */
+:root{--rose:#93564a}                 /* 文字に使うローズ：白・肌色の背景どちらでも4.5:1以上 */
+.intro__script{color:#93564a}
+.sched td span{color:#7d6a64}
+.cls__table small,.outline small{color:#6b6b6b}
+.cls--next .cls__name span{color:#1d2026}
+.cls--rising .cls__name span{color:#2e1a12}
+.rules li:first-child b{background:none;color:inherit}
+.rules .rg-num{background:var(--rg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rules li:first-child small{color:#fff}
+.entry__btn:focus-visible,.dateband__btn:focus-visible{outline:3px solid var(--rose-l);outline-offset:3px}
+.dateband__btn{display:inline-block;margin-top:14px;padding:11px 22px;border:1px solid var(--rose-l);border-radius:999px;color:var(--rose-l);font-weight:700;font-size:14px;text-decoration:none;transition:background-color .2s}
+.dateband__btn:hover{background:rgba(233,196,182,.12)}
+.ttl small{color:#6b6b6b}
+.judge__ph{color:#8f949c}
+/* スワイプ：ドットを押しやすく（見た目は小さく、押せる範囲は24×32px以上） */
+.swipe__dots{gap:2px}
+.swipe__dots button{width:24px;height:32px;background:none!important;border-radius:0;display:grid;place-items:center;transition:width .25s}
+.swipe__dots button::after{content:none}
+.swipe__dots button::before{content:"";width:8px;height:8px;border-radius:999px;background:#d9c3bb;transition:width .25s,background-color .25s}
+.swipe__dots button[aria-current="true"]{width:36px}
+.swipe__dots button[aria-current="true"]::before{width:24px;background:var(--rose)}
+.swipe--judge .swipe__dots button::before{background:#4a3f3b}
+.swipe--judge .swipe__dots button[aria-current="true"]::before{background:var(--rose-l)}
+/* フォーカスをはっきり */
+.swipe__track:focus-visible{outline:3px solid var(--rose);outline-offset:2px;border-radius:20px}
+.swipe__dots button:focus-visible,.swipe__arrow:focus-visible{outline:3px solid var(--rose);outline-offset:2px;border-radius:999px}
+.swipe--judge .swipe__track:focus-visible,.swipe--judge .swipe__dots button:focus-visible,.swipe--judge .swipe__arrow:focus-visible{outline-color:var(--rose-l)}
