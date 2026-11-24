@@ -596,3 +596,7 @@ ol,ul{list-style:none}
 @media (max-width:859px){
   .hk__logo{display:block;align-self:stretch;margin-left:-20px;margin-right:-20px;padding:10px 20px 12px;font-size:calc((100vw - 44px) / 5.42)}
 }
+
+/* v6.1 パソコン：タイトルを写真にかからない範囲で大きく（92px→104px） */
+@media (min-width:860px){.hk__logo{font-size:100px}}
+@media (min-width:1200px){.hk__logo{font-size:106px}}
