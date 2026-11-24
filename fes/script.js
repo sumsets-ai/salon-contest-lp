@@ -48,26 +48,22 @@ var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)')
   setTimeout(function () { if (!alive) els.forEach(function (e) { e.classList.add('is-in'); }); }, 2500);
 })();
 
-// ハサミ：スクロールした分だけ横に切り進む（戻ると戻る。出てくるたびに毎回動く）
+// ハサミの境目・セクション：画面に入るたびに動く（出たら元に戻し、次に入ったときもう一度動く）
 (function () {
-  var cuts = [].slice.call(document.querySelectorAll('.cut'));
-  if (!cuts.length || reduce) return; // 動きを減らす設定では、切り終わった状態のまま
-  var ticking = false;
-  function update() {
-    ticking = false;
-    var vh = window.innerHeight;
-    cuts.forEach(function (c) {
-      var top = c.getBoundingClientRect().top;
-      var p = (vh - top) / (vh * 0.65); // 画面の下端で切り始め、上から35%で切り終わる
-      p = Math.max(0, Math.min(1, p));
-      c.style.setProperty('--p', p.toFixed(4));
-      c.style.setProperty('--snip', Math.abs(Math.sin(p * Math.PI * 7)).toFixed(3));
+  var els = document.querySelectorAll('.cut, .fade');
+  if (!els.length) return;
+  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
+  var alive = false;
+  var io = new IntersectionObserver(function (es) {
+    alive = true;
+    es.forEach(function (e) {
+      var need = e.target.classList.contains('cut') ? 0.9 : 0.12;
+      if (e.intersectionRatio >= need) e.target.classList.add('is-in');
+      else if (!e.isIntersecting) e.target.classList.remove('is-in');
     });
-  }
-  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
-  addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', onScroll, { passive: true });
-  update();
+  }, { threshold: [0, 0.12, 0.9] });
+  els.forEach(function (e) { io.observe(e); });
+  setTimeout(function () { if (!alive) els.forEach(function (e) { e.classList.add('is-in'); }); }, 2500);
 })();
 
 // PROGRAM一覧：スマホでは、画面の真ん中に来た行の写真を開く（パソコンはマウスを乗せたとき）

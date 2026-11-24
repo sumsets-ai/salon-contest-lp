@@ -441,3 +441,45 @@ ol,ul{list-style:none}
 .totop:hover{background:var(--gold);color:var(--dark)}
 .totop:active{transform:translateY(2px)}
 @media (max-width:759px){.totop{bottom:84px;right:14px;width:48px;height:48px}}
+
+/* ===================== v4.8 ===================== */
+/* ハサミ：境目が画面に入るたび、自動で左から右へ切り抜ける（スクロール連動はやめる） */
+.js .cut__done,.js .cut.is-in .cut__done{width:0!important;transition:none!important}
+.js .cut__sc,.js .cut.is-in .cut__sc{left:18px!important;transition:none!important}
+.js .cut .blade--a,.js .cut .blade--b{transform:none}
+@media (prefers-reduced-motion:no-preference){
+  .js .cut.is-in .cut__done{width:calc(100% - 66px)!important;transition:width 1.3s var(--ease)!important}
+  .js .cut.is-in .cut__sc{left:calc(100% - 46px)!important;transition:left 1.3s var(--ease)!important}
+  .js .cut.is-in .blade--a{animation:snipA .3s ease-in-out 4!important}
+  .js .cut.is-in .blade--b{animation:snipB .3s ease-in-out 4!important}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .cut__done{width:calc(100% - 66px)!important}.js .cut__sc{left:calc(100% - 46px)!important}
+}
+/* セクション：出てくるたびにフェードイン */
+@media (prefers-reduced-motion:no-preference){
+  .js .fade>.wrap{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .js .fade.is-in>.wrap{opacity:1;transform:none}
+  .js .fade>.wrap+.wrap{transition-delay:.15s}
+}
+/* GROOM ONE 申込み&特設ページ：ローズゴールドのつや＋光の筋がずっと流れる */
+.btn--g1{position:relative;overflow:hidden;isolation:isolate;color:#2a1418;background:linear-gradient(115deg,#b9707e 0%,#e8a7a1 30%,#f3d3b0 55%,#c9a35a 80%,#b9707e 100%);background-size:220% 100%;box-shadow:0 8px 28px rgba(201,120,120,.35),inset 0 0 0 1px rgba(255,255,255,.35)}
+.btn--g1::before{content:"";position:absolute;inset:-20% auto -20% -40%;width:30%;z-index:-1;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-18deg)}
+.btn--g1:hover{box-shadow:0 12px 34px rgba(201,120,120,.5),inset 0 0 0 1px rgba(255,255,255,.5)}
+.btn--g1-lg{flex-direction:column;align-items:flex-start;padding:20px 64px 20px 30px;font-size:17px;max-width:560px;width:100%;position:relative}
+.btn--g1-lg small{font-size:12px;font-weight:700;letter-spacing:.1em;opacity:.8;margin-bottom:2px}
+.btn--g1-lg::after{position:absolute;right:26px;top:50%;transform:translateY(-50%);font-size:22px}
+.btn--g1-lg:hover::after{transform:translate(4px,-50%)}
+@media (prefers-reduced-motion:no-preference){
+  .btn--g1{animation:g1bg 6s linear infinite}
+  .btn--g1::before{animation:g1shine 3.2s var(--ease) infinite}
+  .btn--g1::after{animation:g1arrow 1.6s var(--ease) infinite}
+  .btn--g1-lg::after{animation:g1arrowlg 1.6s var(--ease) infinite}
+}
+@keyframes g1bg{to{background-position:220% 0}}
+@keyframes g1shine{0%{left:-40%}60%,100%{left:130%}}
+@keyframes g1arrow{0%,100%{transform:none}50%{transform:translateX(5px)}}
+@keyframes g1arrowlg{0%,100%{transform:translateY(-50%)}50%{transform:translate(5px,-50%)}}
+.bar__entry{background:linear-gradient(115deg,#e8a7a1,#f3d3b0,#c9a35a);color:#2a1418!important;padding:6px 12px!important;font-weight:900!important}
+@media (max-width:1119px){.bar__nav.is-open .bar__entry{padding:13px 12px!important;margin-top:8px}}
+@media (max-width:520px){.btn--g1{font-size:13.5px;letter-spacing:.03em;white-space:nowrap;padding-left:18px;padding-right:18px}.btn--g1-lg{padding:18px 52px 18px 20px;font-size:15px}.btn--g1-lg::after{right:18px}}
