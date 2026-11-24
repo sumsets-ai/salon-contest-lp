@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700;1,800&family=Noto+Sans+JP:wght@400;500;700;900&family=Pinyon+Script&family=Shippori+Mincho+B1:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5.4">
+<link rel="stylesheet" href="style.css?v=5.7">
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
@@ -33,6 +33,11 @@
   </symbol>
 </svg>
 
+<nav class="sites" aria-label="関連ページ">
+  <span class="sites__lbl">このイベントのページ</span>
+  <a class="sites__tab is-current" href="#top" aria-current="page"><b>①</b>IRODORI fes'27<small>イベント公式ページ（このページ）</small></a>
+  <a class="sites__tab" href="https://sumsets-ai.github.io/salon-contest-lp/" target="_blank" rel="noopener"><b>②</b>GROOM ONE<small>コンテスト特設ページ ↗</small></a>
+</nav>
 <header class="bar">
   <a class="bar__logo" href="#top" translate="no">IRODORI <i>fes</i><b>'27</b></a>
   <nav class="bar__nav" id="nav" aria-label="ページ内メニュー">
@@ -138,32 +143,44 @@
     <h2 class="mh mh--light mh--one">この日に出会える有名トリマーの講師陣</h2>
     <ul class="pgrid st">
       <li class="pgrid__main">
+        <button class="pgrid__btn" type="button" data-person="nakamura" aria-haspopup="dialog">
         <figure><img src="assets/nakamura-full.jpg" width="698" height="860" alt="中村 健太 氏" loading="lazy"></figure>
         <p class="pgrid__role v-learn">特別セミナー 講師</p>
         <p class="pgrid__name">中村 健太<small>氏</small></p>
         <p class="pgrid__org">Jumi's World</p>
         <p class="pgrid__note">全米大会 LA ピュアブリードクラス 1位<br>全米大会 シアトル フリースタイルクラス 2位<br>JKC全国トリミング競技大会 技術賞<br>JKC東北ブロック 最優秀賞</p>
+        <span class="pgrid__more">プロフィールを見る<i>+</i></span>
+        </button>
       </li>
       <li>
-        <figure><img src="assets/judge-yoshikawa.jpg" width="336" height="336" alt="吉川 雅人 先生" loading="lazy"></figure>
+        <button class="pgrid__btn" type="button" data-person="yoshikawa" aria-haspopup="dialog">
+        <figure><img src="assets/yoshikawa-portrait.jpg" width="939" height="1174" alt="吉川 雅人 先生" loading="lazy"></figure>
         <p class="pgrid__role v-watch">GROOM ONE 審査員<em class="tag">予定</em></p>
         <p class="pgrid__name">吉川 雅人<small>先生</small></p>
         <p class="pgrid__org">BUBBLES DOG</p>
         <p class="pgrid__note">NEXT GROOMER 担当</p>
+        <span class="pgrid__more">プロフィールを見る<i>+</i></span>
+        </button>
       </li>
       <li>
+        <button class="pgrid__btn" type="button" data-person="shida" aria-haspopup="dialog">
         <figure><img src="assets/judge-shida.jpg" width="336" height="336" alt="志田 康正 先生" loading="lazy"></figure>
         <p class="pgrid__role v-watch">GROOM ONE 審査員<em class="tag">予定</em></p>
         <p class="pgrid__name">志田 康正<small>先生</small></p>
         <p class="pgrid__org">Dog Salon 志田</p>
         <p class="pgrid__note">RISING / SALON PRO 担当</p>
+        <span class="pgrid__more">プロフィールを見る<i>+</i></span>
+        </button>
       </li>
       <li>
+        <button class="pgrid__btn" type="button" data-person="takahashi" aria-haspopup="dialog">
         <figure><img src="assets/judge-takahashi.jpg" width="336" height="336" alt="高橋 伸枝 先生" loading="lazy"></figure>
         <p class="pgrid__role v-watch">GROOM ONE 審査員<em class="tag">予定</em></p>
         <p class="pgrid__name">高橋 伸枝<small>先生</small></p>
         <p class="pgrid__org">Dog Berry</p>
         <p class="pgrid__note">RISING / SALON PRO 担当</p>
+        <span class="pgrid__more">プロフィールを見る<i>+</i></span>
+        </button>
       </li>
     </ul>
 
@@ -172,6 +189,7 @@
       <div class="qline__body">
         <p class="qline__copy">「ハサミを置いたら、ビールを持つ。」</p>
         <p><b>正田 梓葉</b>（Lulu dog trimming）<br>閉店後30分以内に乾杯したいグルーマー。<br>得意分野は、独立開業・店舗展開・業務効率化（グループ8店舗展開）。</p>
+        <button class="qline__btn" type="button" data-person="shoda" aria-haspopup="dialog">正田 梓葉のプロフィールを見る<i>+</i></button>
         <p class="qline__more">ほか5名のQUEST GROOMERは、決まりしだい紹介します。</p>
       </div>
     </div>
@@ -217,6 +235,7 @@
       </tbody>
     </table>
     <p class="small">募集開始日は後日発表。<br>NEXT GROOMERは学生優先・選考あり。定員に達しだい締め切ります。</p>
+    <p class="twopage">GROOM ONEには、<b>コンテスト専用の特設ページ</b>があります。<br>クラス・ルール・審査員・当日の流れ・エントリーは、特設ページでご案内しています。</p>
     <div class="go1">
       <a class="btn btn--g1 btn--g1-lg" href="https://sumsets-ai.github.io/salon-contest-lp/" target="_blank" rel="noopener"><small>出場者募集・3クラス計30名</small>GROOM ONE 申込み&amp;特設ページへ</a>
       <p class="small">クラス・ルール・審査員・当日の流れは、専用ページにまとめています。</p>
@@ -394,14 +413,101 @@
     <div><dt>主催</dt><dd>株式会社 IRODORI LIFE</dd></div>
     <div><dt>企画・運営パートナー</dt><dd>Lulu dog trimming／本田 亜希子／松田 古都</dd></div>
     <div><dt>会場協力</dt><dd>名古屋ビジネスアカデミー</dd></div>
-    <div><dt>同時開催</dt><dd><a href="https://sumsets-ai.github.io/salon-contest-lp/" target="_blank" rel="noopener">GROOM ONE NAGOYA 2027 ↗</a></dd></div>
+    <div><dt>関連ページ</dt><dd>① IRODORI fes'27 イベント公式ページ（このページ）<br>② <a href="https://sumsets-ai.github.io/salon-contest-lp/" target="_blank" rel="noopener">GROOM ONE NAGOYA 2027 コンテスト特設ページ ↗</a></dd></div>
   </dl>
   <p class="foot__copy">© IRODORI LIFE</p>
 </footer>
 
+
+<!-- ===== 講師のプロフィール（ポップアップ） ===== -->
+<dialog class="pm" id="pm" aria-labelledby="pm-name">
+  <button class="pm__close" type="button" aria-label="閉じる">×</button>
+  <div class="pm__body"></div>
+</dialog>
+
+<!-- 各人の中身：届いたら、ここの「後日掲載」を書き換えるだけ -->
+<template id="p-nakamura">
+  <div class="pm__photos"><img src="assets/nakamura-full.jpg" alt="中村 健太 氏"></div>
+  <div class="pm__txt">
+    <p class="pm__role v-learn">特別セミナー 講師</p>
+    <h3 class="pm__name" id="pm-name">中村 健太<small>氏</small></h3>
+    <p class="pm__org">Jumi's World</p>
+    <dl class="pm__rows">
+      <div><dt>受賞歴</dt><dd>全米大会 LA ピュアブリードクラス 1位<br>全米大会 シアトル フリースタイルクラス 2位<br>JKC全国トリミング競技大会 技術賞<br>JKC東北ブロック 最優秀賞</dd></div>
+      <div><dt>当日会える場所</dt><dd>7F 701 特別セミナー（9:30–12:00 予定）</dd></div>
+      <div><dt>経歴・得意なこと</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>来場者へひとこと</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>SNS</dt><dd class="tbd">後日掲載</dd></div>
+    </dl>
+  </div>
+</template>
+<template id="p-yoshikawa">
+  <div class="pm__photos"><img src="assets/yoshikawa-4.jpg" alt="吉川 雅人 先生"><img src="assets/yoshikawa-2.jpg" alt=""><img src="assets/yoshikawa-5.jpg" alt=""><img src="assets/yoshikawa-1.jpg" alt=""></div>
+  <div class="pm__txt">
+    <p class="pm__role v-watch">GROOM ONE 審査員（予定）</p>
+    <h3 class="pm__name" id="pm-name">吉川 雅人<small>先生</small></h3>
+    <p class="pm__org">BUBBLES DOG</p>
+    <dl class="pm__rows">
+      <div><dt>担当</dt><dd>NEXT GROOMER</dd></div>
+      <div><dt>当日会える場所</dt><dd>8F 801 GROOM ONE 午前の部（8:00–11:15 予定）</dd></div>
+      <div><dt>経歴・得意なこと</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>受賞歴</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>来場者へひとこと</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>SNS</dt><dd class="tbd">後日掲載</dd></div>
+    </dl>
+  </div>
+</template>
+<template id="p-shida">
+  <div class="pm__photos"><img src="assets/judge-shida.jpg" alt="志田 康正 先生"></div>
+  <div class="pm__txt">
+    <p class="pm__role v-watch">GROOM ONE 審査員（予定）</p>
+    <h3 class="pm__name" id="pm-name">志田 康正<small>先生</small></h3>
+    <p class="pm__org">Dog Salon 志田</p>
+    <dl class="pm__rows">
+      <div><dt>担当</dt><dd>RISING / SALON PRO</dd></div>
+      <div><dt>当日会える場所</dt><dd>8F 801 GROOM ONE 午後の部（11:45–15:30 予定）</dd></div>
+      <div><dt>経歴・得意なこと</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>受賞歴</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>来場者へひとこと</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>SNS</dt><dd class="tbd">後日掲載</dd></div>
+    </dl>
+  </div>
+</template>
+<template id="p-takahashi">
+  <div class="pm__photos"><img src="assets/judge-takahashi.jpg" alt="高橋 伸枝 先生"></div>
+  <div class="pm__txt">
+    <p class="pm__role v-watch">GROOM ONE 審査員（予定）</p>
+    <h3 class="pm__name" id="pm-name">高橋 伸枝<small>先生</small></h3>
+    <p class="pm__org">Dog Berry</p>
+    <dl class="pm__rows">
+      <div><dt>担当</dt><dd>RISING / SALON PRO</dd></div>
+      <div><dt>当日会える場所</dt><dd>8F 801 GROOM ONE 午後の部（11:45–15:30 予定）</dd></div>
+      <div><dt>経歴・得意なこと</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>受賞歴</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>来場者へひとこと</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>SNS</dt><dd class="tbd">後日掲載</dd></div>
+    </dl>
+  </div>
+</template>
+<template id="p-shoda">
+  <div class="pm__photos pm__photos--none"><span>PHOTO</span></div>
+  <div class="pm__txt">
+    <p class="pm__role v-talk">QUEST GROOMER 01</p>
+    <h3 class="pm__name" id="pm-name">正田 梓葉</h3>
+    <p class="pm__org">Lulu dog trimming</p>
+    <p class="pm__copy">「ハサミを置いたら、ビールを持つ。」</p>
+    <dl class="pm__rows">
+      <div><dt>ひとこと紹介</dt><dd>閉店後30分以内に乾杯したいグルーマー</dd></div>
+      <div><dt>得意分野</dt><dd>独立開業・店舗展開・業務効率化（グループ8店舗展開）</dd></div>
+      <div><dt>当日会える場所</dt><dd>会場内（GROOM ONE QUEST）</dd></div>
+      <div><dt>SNS</dt><dd class="tbd">後日掲載</dd></div>
+    </dl>
+  </div>
+</template>
+
 <a class="float is-hide" href="#entry">無料で来場登録<small>当日粗品プレゼント</small></a>
 <a class="totop" href="#top" aria-label="ページの先頭へ戻る"><span aria-hidden="true">↑</span>TOP</a>
 
-<script src="script.js?v=5.2"></script>
+<script src="script.js?v=5.5"></script>
 </body>
 </html>

@@ -92,3 +92,25 @@ var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)')
     window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
   });
 })();
+
+// 講師のプロフィール：写真や名前を押すと開く（×・外側・Escで閉じる）
+(function () {
+  var dlg = document.getElementById('pm');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+  var body = dlg.querySelector('.pm__body');
+  var opener = null;
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-person]');
+    if (!b) return;
+    var tpl = document.getElementById('p-' + b.getAttribute('data-person'));
+    if (!tpl) return;
+    opener = b;
+    body.innerHTML = '';
+    body.appendChild(tpl.content.cloneNode(true));
+    dlg.showModal();
+    dlg.scrollTop = 0;
+  });
+  dlg.querySelector('.pm__close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function () { if (opener) opener.focus(); });
+})();

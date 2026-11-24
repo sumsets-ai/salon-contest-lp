@@ -529,3 +529,59 @@ ol,ul{list-style:none}
   0%,14%,100%{filter:none}
   6%{filter:brightness(1.35) drop-shadow(0 0 3px rgba(255,228,170,.95))}
 }
+
+/* ===================== v5.5 ===================== */
+/* ①②のページ切り替え */
+.sites{display:flex;align-items:stretch;gap:0;background:#0b0a0c;color:#cfc7cd;font-size:12px;border-bottom:1px solid #2a262d;overflow-x:auto}
+.sites__lbl{display:flex;align-items:center;padding:0 14px;color:#7d757f;white-space:nowrap;font-size:11px;letter-spacing:.06em}
+.sites__tab{display:flex;align-items:center;gap:8px;padding:9px 16px;text-decoration:none;white-space:nowrap;border-left:1px solid #2a262d;font-family:var(--en);font-weight:700;font-size:14px;letter-spacing:.04em;color:#d6d0d6;transition:background .2s}
+.sites__tab b{font-family:var(--jp);color:var(--gold)}
+.sites__tab small{font-family:var(--jp);font-weight:500;font-size:11px;color:#9a929c;letter-spacing:0}
+.sites__tab.is-current{background:var(--dark);color:#fff;box-shadow:inset 0 -2px 0 var(--pink)}
+.sites__tab:not(.is-current):hover{background:#1a171c;color:#fff}
+.sites__tab:not(.is-current) small{color:var(--gold)}
+@media (max-width:640px){.sites__lbl{display:none}.sites__tab{flex:1;flex-direction:column;align-items:flex-start;gap:0;padding:7px 12px;font-size:13px}.sites__tab b{display:none}}
+.twopage{margin-top:28px;padding:14px 18px;border-left:3px solid var(--gold);background:rgba(255,255,255,.55);font-size:14px;line-height:1.85}
+
+/* 講師：押せる格子 */
+.pgrid__btn{all:unset;display:block;cursor:pointer;width:100%}
+.pgrid__btn:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
+.pgrid__more{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:12.5px;font-weight:700;color:var(--gold);border-bottom:1px solid rgba(201,163,90,.5);padding-bottom:2px;transition:gap .3s var(--ease)}
+.pgrid__more i{font-style:normal;font-family:var(--en);font-size:16px;line-height:1}
+.pgrid__btn:hover .pgrid__more{gap:14px}
+.qline__btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:13px;font-weight:700;color:var(--talk);border-bottom:1px solid rgba(143,196,181,.5);padding-bottom:2px}
+.qline__btn i{font-style:normal;font-family:var(--en);font-size:16px}
+.qline__btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+/* ポップアップ */
+.pm{padding:0;border:0;max-width:920px;width:calc(100% - 40px);max-height:calc(100vh - 60px);background:var(--paper);color:var(--ink);overflow:auto}
+.pm::backdrop{background:rgba(11,10,12,.72);backdrop-filter:blur(3px)}
+.pm__close{position:sticky;top:0;float:right;z-index:3;width:48px;height:48px;border:0;background:var(--dark);color:#fff;font-size:24px;cursor:pointer}
+.pm__close:hover{background:var(--pink-d)}
+.pm__body{display:grid;gap:0}
+@media (min-width:760px){.pm__body{grid-template-columns:1fr 1fr}}
+.pm__photos{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:#000;align-content:start}
+.pm__photos img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.pm__photos img:first-child{grid-column:1/-1;aspect-ratio:4/5;object-position:50% 20%}
+.pm__photos--none{display:grid;place-items:center;min-height:260px;background:var(--dark);color:#5f5861;font-family:var(--en);letter-spacing:.2em}
+.pm__txt{padding:28px 26px 32px}
+.pm__role{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--cd)}
+.pm__name{font-family:var(--min);font-weight:800;font-size:30px;line-height:1.3;margin-top:4px}
+.pm__name small{font-size:.55em;margin-left:.2em}
+.pm__org{font-family:var(--en);font-weight:700;font-size:16px;color:var(--sub)}
+.pm__copy{font-family:var(--min);font-weight:800;font-size:19px;margin-top:14px}
+.pm__rows{margin-top:20px;border-top:2px solid var(--ink)}
+.pm__rows div{display:grid;grid-template-columns:7.5em 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.pm__rows dt{font-weight:700;color:var(--sub);font-size:12.5px}
+.pm__rows .tbd{color:#a39a9f}
+@media (max-width:759px){
+  .pm{width:100%;max-width:none;max-height:88vh;margin:auto 0 0;}
+  .pm[open]{animation:pmup .35s var(--ease)}
+}
+@media (min-width:760px){.pm[open]{animation:pmin .3s var(--ease)}}
+@keyframes pmup{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@keyframes pmin{from{transform:scale(.97);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.pm[open]{animation:none}}
+.pm__close{float:none!important;display:block;margin:0 0 -48px auto}
+.pm__photos--none{grid-template-columns:1fr!important}
+@media (max-width:420px){.pm__copy{font-size:16.5px;white-space:nowrap}}
