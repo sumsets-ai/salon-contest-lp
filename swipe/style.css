@@ -422,3 +422,9 @@ html{-webkit-tap-highlight-color:rgba(196,139,124,.25);touch-action:manipulation
 .swipe__track:focus-visible{outline:3px solid var(--rose);outline-offset:2px;border-radius:20px}
 .swipe__dots button:focus-visible,.swipe__arrow:focus-visible{outline:3px solid var(--rose);outline-offset:2px;border-radius:999px}
 .swipe--judge .swipe__track:focus-visible,.swipe--judge .swipe__dots button:focus-visible,.swipe--judge .swipe__arrow:focus-visible{outline-color:var(--rose-l)}
+
+/* IRODORI fes'27 公式ページへの戻りリンク */
+.side__fes{margin-top:10px;font-size:13px!important;color:var(--gold)!important}
+.side__fes::before{content:"↗"!important}
+.foot__fes{font-size:12px;line-height:1.8;margin-top:18px;color:#a7abb2}
+.foot__fes a{color:var(--gold)}

@@ -371,3 +371,9 @@ html{-webkit-tap-highlight-color:rgba(196,139,124,.25);touch-action:manipulation
 .dateband__btn:hover{background:rgba(233,196,182,.12)}
 .ttl small{color:#6b6b6b}
 .judge__ph{color:#8f949c}
+
+/* IRODORI fes'27 公式ページへの戻りリンク */
+.side__fes{margin-top:10px;font-size:13px!important;color:var(--gold)!important}
+.side__fes::before{content:"↗"!important}
+.foot__fes{font-size:12px;line-height:1.8;margin-top:18px;color:#a7abb2}
+.foot__fes a{color:var(--gold)}
