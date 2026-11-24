@@ -519,3 +519,13 @@ ol,ul{list-style:none}
 
 /* ===================== v5.3：タイトルの光を常時 ===================== */
 .hk__logo .lt{animation:none!important;text-shadow:0 0 10px rgba(255,230,180,.95),0 0 26px rgba(201,163,90,.6)}
+
+/* ===================== v5.4：1文字ずつ、くっきり光らせる ===================== */
+.hk__logo .lt{text-shadow:none!important;animation:none!important}
+@media (prefers-reduced-motion:no-preference){
+  .hk__logo .lt{animation:glint2 4s var(--ease) infinite!important;animation-delay:calc(var(--i) * .12s + .6s)!important}
+}
+@keyframes glint2{
+  0%,14%,100%{filter:none}
+  6%{filter:brightness(1.35) drop-shadow(0 0 3px rgba(255,228,170,.95))}
+}
