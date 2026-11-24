@@ -333,3 +333,67 @@ ol,ul{list-style:none}
 }
 @media (max-width:899px){.pgrid__main{grid-column:auto}.pgrid__main .pgrid__name{font-size:22px}.pgrid__note{font-size:11.5px}}
 @media (max-width:520px){.mh--fit{font-size:6.4vw;white-space:nowrap}.lead{font-size:14.5px}}
+
+/* ===================== v4.3 ===================== */
+/* 見出しを1行に（スマホは画面幅に合わせて縮める） */
+.mh--one{white-space:nowrap}
+@media (max-width:760px){
+  .mh--one{font-size:calc((100vw - 40px) / var(--chars,15))}
+  #program .mh--one{--chars:14.5}
+  #people .mh--one{--chars:19}
+  #quest .mh--one{--chars:16}
+}
+/* ハサミの境目（GROOM ONE LPと同じ動き） */
+.paper+.paper:not(.paper--2){border-top:0}
+.cut{position:relative;height:56px;background:var(--bg)}
+.cut--paper{--bg:var(--paper);--cl:var(--rule);--cc:var(--gold-d)}
+.cut--paper2{--bg:var(--paper-2);--cl:var(--rule);--cc:var(--gold-d)}
+.cut--dark{--bg:var(--dark);--cl:#2e2a31;--cc:var(--pink)}
+.cut+section{padding-top:56px}
+.cut__in{position:relative;max-width:var(--wrap);height:100%;margin:0 auto}
+.cut__line,.cut__done{position:absolute;left:20px;top:50%;height:0}
+.cut__line{right:20px;border-top:1px solid var(--cl)}
+.cut__done{width:calc(100% - 66px);border-top:1.5px dashed var(--cc)}
+.cut__sc{position:absolute;top:50%;left:calc(100% - 46px);transform:translateY(-50%);color:var(--cc);line-height:0;background:var(--bg);padding:0 2px}
+.cut__sc svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;display:block}
+.blade{transform-origin:14.6px 12px}
+@media (prefers-reduced-motion:no-preference){
+  .js .cut__done{width:0}
+  .js .cut__sc{left:18px}
+  .js .cut.is-in .cut__done{width:calc(100% - 66px);transition:width 1.4s cubic-bezier(.45,.05,.4,1)}
+  .js .cut.is-in .cut__sc{left:calc(100% - 46px);transition:left 1.4s cubic-bezier(.45,.05,.4,1)}
+  .js .cut.is-in .blade--a{animation:snipA .35s ease-in-out 4}
+  .js .cut.is-in .blade--b{animation:snipB .35s ease-in-out 4}
+}
+@keyframes snipA{50%{transform:rotate(-14deg)}}
+@keyframes snipB{50%{transform:rotate(14deg)}}
+
+/* ===================== v4.4：動きと強調 ===================== */
+:root{--ease:cubic-bezier(.22,.61,.36,1)}
+/* 1) 押したときに少し沈む */
+.btn,.bar__cta,.float{transition:background .25s var(--ease),color .25s var(--ease),transform .15s var(--ease)}
+.btn:active,.bar__cta:active,.float:active{transform:translateY(2px) scale(.985)}
+.btn:not(.btn--off):hover::after{transform:translateX(4px)}
+.btn::after{transition:transform .3s var(--ease)}
+/* プログラム一覧：→が右へ動く（スマホは押した瞬間に色が変わる） */
+.plist a::after{transition:transform .3s var(--ease)}
+.plist a:hover::after{transform:translateX(6px)}
+.plist a:active{background:rgba(255,255,255,.7)}
+.pgrid img{transition:transform .8s var(--ease)}
+/* 2) 時間差で表示（1回だけ） */
+@media (prefers-reduced-motion:no-preference){
+  .js .st>li{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .js .st.is-in>li{opacity:1;transform:none}
+  .js .st.is-in>li:nth-child(2){transition-delay:.12s}
+  .js .st.is-in>li:nth-child(3){transition-delay:.24s}
+  .js .st.is-in>li:nth-child(4){transition-delay:.36s}
+}
+/* 3) マーカー風の金の下線（見えたら左から引かれる） */
+.mk{background-image:linear-gradient(transparent 68%,rgba(201,163,90,.55) 68%,rgba(201,163,90,.55) 92%,transparent 92%);background-repeat:no-repeat;background-size:100% 100%}
+@media (prefers-reduced-motion:no-preference){
+  .js .mk{background-size:0 100%;transition:background-size 1s var(--ease) .2s}
+  .js .mk.is-in{background-size:100% 100%}
+}
+/* 4) 既存の動きもイージングをそろえる */
+.js .cut.is-in .cut__done{transition-timing-function:var(--ease)!important}
+.js .cut.is-in .cut__sc{transition-timing-function:var(--ease)!important}

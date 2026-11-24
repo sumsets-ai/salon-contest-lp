@@ -41,3 +41,29 @@ document.documentElement.classList.add('js');
   }, { threshold: 0.4 });
   io.observe(q);
 })();
+
+// ハサミの境目：見えたら1回だけ切り進む
+(function () {
+  var cuts = document.querySelectorAll('.cut');
+  if (!cuts.length) return;
+  if (!('IntersectionObserver' in window)) { cuts.forEach(function (c) { c.classList.add('is-in'); }); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { threshold: 0.6 });
+  cuts.forEach(function (c) { io.observe(c); });
+})();
+
+// 時間差表示とマーカー：見えたら1回だけ
+(function () {
+  var els = document.querySelectorAll('.st, .mk');
+  if (!els.length) return;
+  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
+  var alive = false;
+  var io = new IntersectionObserver(function (es) {
+    alive = true;
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(function (e) { io.observe(e); });
+  // 安全策：2.5秒たっても判定が動かない環境では、最初から全部見せる
+  setTimeout(function () { if (!alive) els.forEach(function (e) { e.classList.add('is-in'); }); }, 2500);
+})();
