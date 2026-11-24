@@ -591,3 +591,8 @@ ol,ul{list-style:none}
 
 /* v5.9 確認中の印 */
 .chk{display:inline-block;margin-left:.5em;padding:0 .45em;border:1px solid currentColor;border-radius:2px;font-style:normal;font-size:.72em;font-weight:700;line-height:1.5;letter-spacing:.04em;opacity:.7;vertical-align:.1em;white-space:nowrap}
+
+/* v6.0 スマホ：タイトルを画面の横幅いっぱいに */
+@media (max-width:859px){
+  .hk__logo{display:block;align-self:stretch;margin-left:-20px;margin-right:-20px;padding:10px 20px 12px;font-size:calc((100vw - 44px) / 5.42)}
+}
