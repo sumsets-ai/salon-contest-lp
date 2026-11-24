@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700;1,800&family=Noto+Sans+JP:wght@400;500;700;900&family=Pinyon+Script&family=Shippori+Mincho+B1:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5.7">
+<link rel="stylesheet" href="style.css?v=5.9">
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
@@ -72,7 +72,7 @@
       <div class="hk__points">
         <p class="hk__points-hd">この日の見どころ</p>
         <ul>
-          <li class="v-learn">全米1位・中村 健太 氏の実犬カット</li>
+          <li class="v-learn">全米1位・中村 健太 氏の実犬カット<em class="chk">確認中</em></li>
           <li class="v-watch">トップグルーマー3名が審査するコンテスト</li>
           <li class="v-buy"><span class="mk">普段は試せない</span>ハサミ・道具を試し切り</li>
           <li class="v-talk">新しい商品・サービスとの出会い</li>
@@ -87,7 +87,7 @@
     <div class="hk__right">
       <figure class="hk__photo"><img src="assets/nakamura-full.jpg" width="698" height="860" alt="トロフィーとビション・フリーゼを抱える中村 健太 氏" fetchpriority="high"></figure>
       <div class="hk__under">
-        <div class="hk__cap"><span>SPECIAL SEMINAR</span><b>中村 健太<small>氏</small></b><p>全米大会 LA ピュアブリードクラス 1位</p></div>
+        <div class="hk__cap"><span>SPECIAL SEMINAR</span><b>中村 健太<small>氏</small></b><p>全米大会 LA ピュアブリードクラス 1位<em class="chk">確認中</em></p></div>
         <div class="hk__judges"><span class="hk__judges-row"><img src="assets/judge-yoshikawa.jpg" width="336" height="336" alt="吉川 雅人 先生"><img src="assets/judge-shida.jpg" width="336" height="336" alt="志田 康正 先生"><img src="assets/judge-takahashi.jpg" width="336" height="336" alt="高橋 伸枝 先生"></span><p><b>GROOM ONE</b>審査員</p></div>
       </div>
     </div>
@@ -148,7 +148,7 @@
         <p class="pgrid__role v-learn">特別セミナー 講師</p>
         <p class="pgrid__name">中村 健太<small>氏</small></p>
         <p class="pgrid__org">Jumi's World</p>
-        <p class="pgrid__note">全米大会 LA ピュアブリードクラス 1位<br>全米大会 シアトル フリースタイルクラス 2位<br>JKC全国トリミング競技大会 技術賞<br>JKC東北ブロック 最優秀賞</p>
+        <p class="pgrid__note">全米大会 LA ピュアブリードクラス 1位<em class="chk">確認中</em><br>全米大会 シアトル フリースタイルクラス 2位<em class="chk">確認中</em><br>JKC全国トリミング競技大会 技術賞<br>JKC東北ブロック 最優秀賞<em class="chk">確認中</em></p>
         <span class="pgrid__more">プロフィールを見る<i>+</i></span>
         </button>
       </li>
@@ -432,13 +432,14 @@
     <p class="pm__role v-learn">特別セミナー 講師</p>
     <h3 class="pm__name" id="pm-name">中村 健太<small>氏</small></h3>
     <p class="pm__org">Jumi's World</p>
+    <p class="pm__intro">宮城県仙台市のトリミングサロン「Jumi's World」で活躍するトリマー。2025年のJKC全国トリミング競技大会で技術賞を受賞。アメリカの大会でも結果を残し、ビション・フリーゼを得意とする。2026年にはビション・フリーゼに特化したプレミアムセミナーの講師も務めた。</p>
     <dl class="pm__rows">
-      <div><dt>受賞歴</dt><dd>全米大会 LA ピュアブリードクラス 1位<br>全米大会 シアトル フリースタイルクラス 2位<br>JKC全国トリミング競技大会 技術賞<br>JKC東北ブロック 最優秀賞</dd></div>
+      <div><dt>受賞歴</dt><dd>全米大会 LA ピュアブリードクラス 1位<em class="chk">確認中</em><br>全米大会 シアトル フリースタイルクラス 2位<em class="chk">確認中</em><br>JKC全国トリミング競技大会 技術賞<br>JKC東北ブロック 最優秀賞<em class="chk">確認中</em></dd></div>
+      <div><dt>得意</dt><dd>ビション・フリーゼ</dd></div>
       <div><dt>当日会える場所</dt><dd>7F 701 特別セミナー（9:30–12:00 予定）</dd></div>
-      <div><dt>経歴・得意なこと</dt><dd class="tbd">後日掲載</dd></div>
-      <div><dt>来場者へひとこと</dt><dd class="tbd">後日掲載</dd></div>
       <div><dt>SNS</dt><dd class="tbd">後日掲載</dd></div>
     </dl>
+    <p class="pm__src">※紹介文はご本人に確認中です。内容が変わる場合があります。</p>
   </div>
 </template>
 <template id="p-yoshikawa">
@@ -447,14 +448,16 @@
     <p class="pm__role v-watch">GROOM ONE 審査員（予定）</p>
     <h3 class="pm__name" id="pm-name">吉川 雅人<small>先生</small></h3>
     <p class="pm__org">BUBBLES DOG</p>
+    <p class="pm__copy">「笑顔と感動を届けるグルーマー」</p>
+    <p class="pm__intro">埼玉県川口市「BUBBLES DOG 川口店」店長。動物看護師を目指して学んだのち、ウサギのグルーミングをきっかけにトリマーの道へ。2017年にメジログルーミングスクールを卒業し、翌年から店長を務める。国内外のコンテストで受賞を重ね、2024年にはロサンゼルスの「GROOM EXPO WEST」で2位を獲得。犬の骨格・性格・暮らしに合わせたカットと、正しい道具の使い方を大切にする。</p>
     <dl class="pm__rows">
+      <div><dt>主な受賞歴</dt><dd>2023年 ペットワゴングルーミングショー ピュアブリード部門 最優秀賞<br>2024年 GROOM EXPO WEST（ロサンゼルス）Salon Free Style 2位<br>2024年 KKC GROOMING CONTEST（韓国）プードルクラス 金賞<br>2025年 HAPPY GROOMING CONTEST in TOKYO JAPAN OPEN STYLE 1位<br>2025年 JKC競技会 埼玉ブロック 優秀技術賞</dd></div>
+      <div><dt>得意</dt><dd>まるっとマズルのシュナウザー・プードル、似合わせカット、ポイントカラー</dd></div>
       <div><dt>担当</dt><dd>NEXT GROOMER</dd></div>
       <div><dt>当日会える場所</dt><dd>8F 801 GROOM ONE 午前の部（8:00–11:15 予定）</dd></div>
-      <div><dt>経歴・得意なこと</dt><dd class="tbd">後日掲載</dd></div>
-      <div><dt>受賞歴</dt><dd class="tbd">後日掲載</dd></div>
-      <div><dt>来場者へひとこと</dt><dd class="tbd">後日掲載</dd></div>
-      <div><dt>SNS</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>SNS</dt><dd><a href="https://www.instagram.com/bubblesdog_kikkawa/" target="_blank" rel="noopener">Instagram @bubblesdog_kikkawa ↗</a></dd></div>
     </dl>
+    <p class="pm__src">※紹介文はご本人に確認中です。内容が変わる場合があります。</p>
   </div>
 </template>
 <template id="p-shida">
@@ -463,14 +466,15 @@
     <p class="pm__role v-watch">GROOM ONE 審査員（予定）</p>
     <h3 class="pm__name" id="pm-name">志田 康正<small>先生</small></h3>
     <p class="pm__org">Dog Salon 志田</p>
+    <p class="pm__intro">「Dog Salon 志田」オーナートリマー。1998年からプードルの名門「スマッシュプードル」で経験を積み、2022年に独立。プードルのショークリップを得意とし、FCIワールドドッグショーをはじめ、国内外のドッグショーで担当犬が数々のトップ賞を受賞。アメリカのウエストミンスター・ケネルクラブ・ドッグショーでも入賞している。国内外で審査員・セミナー講師を務める。</p>
     <dl class="pm__rows">
+      <div><dt>主な実績</dt><dd>FCIワールドドッグショー（デンマーク）担当したトイプードルが Best In Show<br>2013年 FCIジャパンインターナショナルドッグショー Reserve Best In Show<br>2016年・2018年 FCIワールドドッグショー BOB<br>2017年 Poodle Club of America National Specialty BOV<br>2019年 ウエストミンスター・ケネルクラブ・ドッグショー BOS</dd></div>
+      <div><dt>得意</dt><dd>プードルのショークリップ</dd></div>
       <div><dt>担当</dt><dd>RISING / SALON PRO</dd></div>
       <div><dt>当日会える場所</dt><dd>8F 801 GROOM ONE 午後の部（11:45–15:30 予定）</dd></div>
-      <div><dt>経歴・得意なこと</dt><dd class="tbd">後日掲載</dd></div>
-      <div><dt>受賞歴</dt><dd class="tbd">後日掲載</dd></div>
-      <div><dt>来場者へひとこと</dt><dd class="tbd">後日掲載</dd></div>
-      <div><dt>SNS</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>SNS</dt><dd><a href="https://www.instagram.com/yasumasashida/" target="_blank" rel="noopener">Instagram @yasumasashida ↗</a></dd></div>
     </dl>
+    <p class="pm__src">※紹介文はご本人に確認中です。内容が変わる場合があります。</p>
   </div>
 </template>
 <template id="p-takahashi">
@@ -479,14 +483,16 @@
     <p class="pm__role v-watch">GROOM ONE 審査員（予定）</p>
     <h3 class="pm__name" id="pm-name">高橋 伸枝<small>先生</small></h3>
     <p class="pm__org">Dog Berry</p>
+    <p class="pm__copy">「人とペットを笑顔でつなぐ架け橋に」</p>
+    <p class="pm__intro">大阪「dogberry」トップトリマー、株式会社ル・シアン・ルポ代表取締役。トイプードルの、流行を取り入れたデザインカットと顔まわりのスタイリングに定評がある。2025年のJKC全国トリミング競技大会で技術賞を受賞。日本ペットサロン協会グルーマーディレクターも務め、セミナーやトリミング動画の監修で後進の育成にも力を注ぐ。</p>
     <dl class="pm__rows">
+      <div><dt>主な受賞歴</dt><dd>2013年 JPFペットスタイリストショー グランプリ<br>2014年 全国トリミング競技会 アーティスティック賞<br>2017年 HAPPY GROOMING CONTEST サロンスタイル 3位<br>2025年 JKC全国トリミング競技大会 技術賞<br>2025年 JKC大阪ブロック競技会 最優秀技術賞</dd></div>
+      <div><dt>得意</dt><dd>トイプードルのデザインカット、顔まわりのスタイリング</dd></div>
       <div><dt>担当</dt><dd>RISING / SALON PRO</dd></div>
       <div><dt>当日会える場所</dt><dd>8F 801 GROOM ONE 午後の部（11:45–15:30 予定）</dd></div>
-      <div><dt>経歴・得意なこと</dt><dd class="tbd">後日掲載</dd></div>
-      <div><dt>受賞歴</dt><dd class="tbd">後日掲載</dd></div>
-      <div><dt>来場者へひとこと</dt><dd class="tbd">後日掲載</dd></div>
-      <div><dt>SNS</dt><dd class="tbd">後日掲載</dd></div>
+      <div><dt>SNS</dt><dd><a href="https://www.instagram.com/dogberry_takahashi/" target="_blank" rel="noopener">Instagram @dogberry_takahashi ↗</a></dd></div>
     </dl>
+    <p class="pm__src">※紹介文はご本人に確認中です。内容が変わる場合があります。</p>
   </div>
 </template>
 <template id="p-shoda">

@@ -585,3 +585,9 @@ ol,ul{list-style:none}
 .pm__close{float:none!important;display:block;margin:0 0 -48px auto}
 .pm__photos--none{grid-template-columns:1fr!important}
 @media (max-width:420px){.pm__copy{font-size:16.5px;white-space:nowrap}}
+.pm__intro{margin-top:16px;font-size:14.5px;line-height:2}
+.pm__rows a{color:var(--pink-d);font-weight:700}
+.pm__src{margin-top:14px;font-size:11.5px;color:#a39a9f}
+
+/* v5.9 確認中の印 */
+.chk{display:inline-block;margin-left:.5em;padding:0 .45em;border:1px solid currentColor;border-radius:2px;font-style:normal;font-size:.72em;font-weight:700;line-height:1.5;letter-spacing:.04em;opacity:.7;vertical-align:.1em;white-space:nowrap}
