@@ -600,3 +600,7 @@ ol,ul{list-style:none}
 /* v6.1 パソコン：タイトルを写真にかからない範囲で大きく（92px→104px） */
 @media (min-width:860px){.hk__logo{font-size:min(124px,10.4vw)}}
 @media (min-width:960px){.hk__right{align-self:start;margin-top:calc(min(124px,10.4vw) * 1.75 + 25px)}}
+
+/* v6.4 見どころ：◇と同じ色のアンダーライン */
+.mk--c{background-image:linear-gradient(transparent 68%,color-mix(in srgb,var(--c) 60%,transparent) 68%,color-mix(in srgb,var(--c) 60%,transparent) 92%,transparent 92%)}
+.hk__points li .mk{margin-right:-10px}
