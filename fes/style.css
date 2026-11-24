@@ -516,3 +516,6 @@ ol,ul{list-style:none}
 @media (min-width:860px){.steps li:first-child{padding-left:22px}}
 @media (max-width:859px){.steps li{padding-left:16px;padding-right:16px}}
 @media (prefers-reduced-motion:reduce){.steps li:hover,.steps li.is-active{transform:none}}
+
+/* ===================== v5.3：タイトルの光を常時 ===================== */
+.hk__logo .lt{animation:none!important;text-shadow:0 0 10px rgba(255,230,180,.95),0 0 26px rgba(201,163,90,.6)}
