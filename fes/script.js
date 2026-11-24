@@ -68,7 +68,7 @@ var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)')
 
 // PROGRAM一覧：スマホでは、画面の真ん中に来た行の写真を開く（パソコンはマウスを乗せたとき）
 (function () {
-  var rows = document.querySelectorAll('.plist li');
+  var rows = document.querySelectorAll('.plist li, .steps li');
   if (!rows.length || !('IntersectionObserver' in window)) return;
   var mq = matchMedia('(max-width: 859px)');
   var io = new IntersectionObserver(function (es) {
