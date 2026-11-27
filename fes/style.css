@@ -604,3 +604,9 @@ ol,ul{list-style:none}
 /* v6.4 見どころ：◇と同じ色のアンダーライン */
 .mk--c{background-image:linear-gradient(transparent 68%,color-mix(in srgb,var(--c) 60%,transparent) 68%,color-mix(in srgb,var(--c) 60%,transparent) 92%,transparent 92%)}
 .hk__points li .mk{margin-right:-10px}
+
+/* v6.6 主催ロゴ（IRODORI LIFE） */
+.foot__org{margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.foot__org small{font-size:12px;letter-spacing:.2em;color:#8d858f}
+.foot__plate{display:inline-block;background:#fff;border-radius:10px;padding:14px 22px}
+.foot__plate img{display:block;width:200px;height:auto}
